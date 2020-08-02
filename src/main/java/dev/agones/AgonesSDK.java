@@ -10,8 +10,6 @@ import dev.agones.model.request.PlayerCount;
 import dev.agones.model.request.PlayerInfo;
 import dev.agones.model.request.Reservation;
 import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -44,6 +42,7 @@ public final class AgonesSDK {
                 .build();
     }
 
+    @SuppressWarnings("unchecked")
     private <E extends Endpoints> E getEndpoints(Class<E> endpoints) {
         return (E) endpointsMap.computeIfAbsent(endpoints, __ -> retrofit.create(endpoints));
     }
@@ -80,8 +79,8 @@ public final class AgonesSDK {
         getEndpoints(AgonesEndpoints.class).shutdown();
     }
 
-    public void gameServer() {
-        getEndpoints(AgonesEndpoints.class).gameServer();
+    public GameServer gameServer() {
+        return getEndpoints(AgonesEndpoints.class).gameServer();
     }
 
     public void label(String key, String value) {
