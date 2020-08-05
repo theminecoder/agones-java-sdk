@@ -36,7 +36,7 @@ public final class AgonesSDK {
 
     public AgonesSDK(int port) {
         this.retrofit = new Retrofit.Builder()
-                .baseUrl(new HttpUrl.Builder().host("http://localhost").port(port).build())
+                .baseUrl(new HttpUrl.Builder().scheme("http").host("localhost").port(port).build())
                 .addCallAdapterFactory(SynchronousCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
