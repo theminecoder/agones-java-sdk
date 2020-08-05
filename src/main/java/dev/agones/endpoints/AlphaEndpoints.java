@@ -29,6 +29,6 @@ public interface AlphaEndpoints extends Endpoints {
     public PlayerCount getPlayerCapacity();
 
     @POST("/alpha/player/capacity")
-    public void setPlayerCapacity(PlayerCount count);
+    public Void setPlayerCapacity(PlayerCount count);
 
 }

@@ -10,27 +10,27 @@ import retrofit2.http.POST;
 public interface AgonesEndpoints extends Endpoints {
 
     @POST("/ready")
-    public void ready();
+    public Void ready();
 
     @POST("/health")
-    public void health();
+    public Void health();
 
     @POST("/reserve")
-    public void reserve(@Body Reservation request);
+    public Void reserve(@Body Reservation request);
 
     @POST("/allocate")
-    public void allocate();
+    public Void allocate();
 
     @POST("/shutdown")
-    public void shutdown();
+    public Void shutdown();
 
     @GET("/gameserver")
     public GameServer gameServer();
 
     @POST("/metadata/label")
-    public void label(@Body LabelOrAnnotation label);
+    public Void label(@Body LabelOrAnnotation label);
 
     @POST("/metadata/annotation")
-    public void annotation(@Body LabelOrAnnotation annotation);
+    public Void annotation(@Body LabelOrAnnotation annotation);
 
 }
