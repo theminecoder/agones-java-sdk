@@ -13,7 +13,7 @@ public interface AgonesEndpoints extends Endpoints {
     public Void ready();
 
     @POST("/health")
-    public Void health();
+    public Void health(@Body Object o);
 
     @POST("/reserve")
     public Void reserve(@Body Reservation request);

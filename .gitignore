@@ -2,3 +2,5 @@
 target/
 *.iml
 *-pom.xml
+build/
+.gradle/
