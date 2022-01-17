@@ -9,6 +9,7 @@ import dev.agones.model.request.LabelOrAnnotation;
 import dev.agones.model.request.PlayerCount;
 import dev.agones.model.request.PlayerInfo;
 import dev.agones.model.request.Reservation;
+import okhttp3.HttpUrl;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -35,7 +36,7 @@ public final class AgonesSDK {
 
     public AgonesSDK(int port) {
         this.retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:" + port)
+                .baseUrl(new HttpUrl.Builder().scheme("http").host("localhost").port(port).build())
                 .addCallAdapterFactory(SynchronousCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
