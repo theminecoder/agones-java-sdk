@@ -1,6 +1,7 @@
 package dev.agones.endpoints;
 
 import dev.agones.model.GameServer;
+import dev.agones.model.request.Empty;
 import dev.agones.model.request.LabelOrAnnotation;
 import dev.agones.model.request.Reservation;
 import retrofit2.http.Body;
@@ -13,7 +14,7 @@ public interface AgonesEndpoints extends Endpoints {
     public Void ready();
 
     @POST("/health")
-    public Void health();
+    public Void health(@Body Empty empty);
 
     @POST("/reserve")
     public Void reserve(@Body Reservation request);

@@ -5,10 +5,7 @@ import dev.agones.endpoints.AgonesEndpoints;
 import dev.agones.endpoints.AlphaEndpoints;
 import dev.agones.endpoints.Endpoints;
 import dev.agones.model.GameServer;
-import dev.agones.model.request.LabelOrAnnotation;
-import dev.agones.model.request.PlayerCount;
-import dev.agones.model.request.PlayerInfo;
-import dev.agones.model.request.Reservation;
+import dev.agones.model.request.*;
 import okhttp3.HttpUrl;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -64,7 +61,7 @@ public final class AgonesSDK {
     }
 
     public void health() {
-        getEndpoints(AgonesEndpoints.class).health();
+        getEndpoints(AgonesEndpoints.class).health(Empty.empty());
     }
 
     public void reserve(int seconds) {
