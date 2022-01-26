@@ -61,7 +61,7 @@ public final class AgonesSDK {
     }
 
     public void health() {
-        getEndpoints(AgonesEndpoints.class).health(new Empty());
+        getEndpoints(AgonesEndpoints.class).health(Empty.empty());
     }
 
     public void reserve(int seconds) {
